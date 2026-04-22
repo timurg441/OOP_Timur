@@ -6,9 +6,18 @@ namespace OOP_Timur
     {
         // Privaatne väli - otse ligi ei saa
         private int sünniaasta;
-
+        public static int InimesteKoguarv = 0;
         // Avalik omadus (Property) automaatse get/set logikaga
         public string Nimi { get; set; }
+        public Isik()
+        {
+            InimesteKoguarv++;
+        }
+
+        public Isik(string nimi) : this()
+        {
+            Nimi = nimi;
+        }
 
         // Kontrollitud omadus
         public int Sünniaasta
@@ -37,7 +46,7 @@ namespace OOP_Timur
                 Console.WriteLine($"Tere! Mina olen {Nimi} ja ma olen {Vanus} aastat vana. Olen sündinud {Sünniaasta} aastal.");
         }
         // Abstraktne meetod – sisu puudub, alamklassid PEAVAD selle ise looma
-        public abstract void Kirjelda();
+        public abstract string Kirjelda();
 
     }
 }

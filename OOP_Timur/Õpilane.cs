@@ -22,6 +22,19 @@ namespace OOP_Timur
         public bool KasOnSotsTõend { get; set; } = false; //eritoetus 120eur
         public TööTüüp VäljamakseTüüp { get; set; } = TööTüüp.Toetus; // Õpilase puhul on väljamakse tüüp alati toetus
         public Õppevorm Staatus { get; set; } = Õppevorm.Päevane; // Kasutame enumi andmetüübina
+
+
+        public Õpilane() : base() // Kutsume baasklassi konstruktorit
+        {
+            // Siin saame teha täiendavaid initsialiseerimisi, kui vaja
+        }
+        public Õpilane(string nimi, string kool, int klass, Õppevorm staatus) : base(nimi)
+        {
+            Nimi = nimi;
+            Kool = kool;
+            Klass = klass;
+            Staatus = staatus;
+        }
         public void Õpi()
         {
             Console.WriteLine($"{Nimi} õpib {Kool} {Klass}. klassis. Vorm: {Staatus}");

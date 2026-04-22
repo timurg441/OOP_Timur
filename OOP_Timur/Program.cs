@@ -15,7 +15,7 @@ using OOP_Timur;
 õpetaja1.Sünniaasta = 1980;
 õpetaja1.Aine = "Matemaatika";
 õpetaja1.Tervita(); // Väljund: Tere! Mina olen Eve...
-õpetaja1.Opeta(); // Väljund: Eve õpetab ainet: Matemaatika.
+õpetaja1.Õpeta(); // Väljund: Eve õpetab ainet: Matemaatika.
 õpetaja1.Kirjelda(); // Väljund: Mina olen õpetaja Eve ja ma õpetan: Matemaatika.
 Console.WriteLine("\n--- Õpilase andmed ---");
 // 2. Loome Õpilase objekti
@@ -29,7 +29,7 @@ Console.WriteLine("\n--- Õpilase andmed ---");
 // Päritud meetod
 õpilane1.Tervita();
 // Õpilase enda meetod
-õpilane1.Opi();
+õpilane1.Õpi();
 // Ootame kasutaja sisestust, et konsooliaken kohe ei sulguks
 õpilane1.Kirjelda();
 
@@ -46,7 +46,6 @@ mati.KeskmineHinne = 4.0;
 minuKool.LisaInimene(mati);
 Õpilane kadi = new Õpilane { Nimi = "Kadi", Klass = 11, Kool = "Kutsehariduskeskus", KeskmineHinne = 3.5, Puudumised = 5, KasOnSotsTõend = false };
 Õpilane jüri = new Õpilane { Nimi = "Jüri", Klass = 12, Kool = "Kutsehariduskeskus", KeskmineHinne = 4.5, Puudumised = 35, KasOnSotsTõend = true };
-
 Õpetaja anna = new Õpetaja { Nimi = "Anna", Aine = "Python", Tunnitasu = 20, Tunnidkuus = 80 };
 Õpetaja peeter = new Õpetaja { Nimi = "Peeter", Aine = "C#", Tunnitasu = 25, Tunnidkuus = 60 };
 // Lisame kõik palgasaajad ühte listi
@@ -55,6 +54,21 @@ minuKool.LisaInimene(kadi);
 minuKool.LisaInimene(jüri);
 minuKool.LisaInimene(anna);
 minuKool.LisaInimene(peeter);
+
+// MASSIIVI JA LISTIGA LISAMINE
+Isik[] massiivIsikuid = new Isik[]
+{
+    new Õpilane { Nimi = "Mari", Klass = 9 },
+    new Õpilane { Nimi = "Jaan", Klass = 10 }
+};
+minuKool.LisaInimene(massiivIsikuid);
+
+List<Isik> listIsikuid = new List<Isik>
+{
+    new Õpetaja { Nimi = "Liisa", Aine = "Füüsika" },
+    new Õpilane { Nimi = "Peeter", Klass = 11 }
+};
+minuKool.LisaInimene(listIsikuid);
 
 //2. variant täitmine tsükli abil
 Random rnd = new Random();
@@ -88,5 +102,13 @@ foreach (ITööline isik in palgasaajad)
 }
 
 minuKool.KuvaKõik();
-minuKool.OtsiNimeJärgi("Mati"); // Näiteks otsime kõiki, kelle nimedes on täht "a"
+minuKool.OtsiNimeJärgi("Mati");
+
+// testimine
+Console.WriteLine("\n--- FAILI SALVESTAMINE ---");
+minuKool.SalvestaFaili();
+minuKool.SalvestaFaili("minu_andmed.txt");
+
+Console.WriteLine($"Kokku on: {Isik.InimesteKoguarv} isikut");
+
 Console.ReadLine();
