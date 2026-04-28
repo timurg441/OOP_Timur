@@ -16,13 +16,13 @@ namespace OOP_Timur
             inimesed.Add(isik);
         }
 
-        // HARJUTUS 6
+        // harjutus 6
         public void LisaInimene(Isik[] uuedInimesed)
         {
             inimesed.AddRange(uuedInimesed);
         }
 
-        // HARJUTUS 6
+        // harjutus 6
         public void LisaInimene(List<Isik> uuedInimesed)
         {
             inimesed.AddRange(uuedInimesed);
@@ -39,7 +39,7 @@ namespace OOP_Timur
             }
         }
 
-        // HARJUTUS 9
+        // harjutus 9
         public void KuvaAinultÕpilased()
         {
             Console.WriteLine("\n--- AINULT ÕPILASED ---");
@@ -117,7 +117,7 @@ namespace OOP_Timur
             }
         }
 
-        // HARJUTUS 7
+        // harjutus 7
         public void SalvestaFaili(string failinimi)
         {
             StreamWriter writer = new StreamWriter(failinimi);

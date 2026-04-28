@@ -1,5 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-using OOP_Timur;
+﻿using OOP_Timur;
 
 Console.WriteLine("=== HARJUTUS 8: VANUSE KONTROLL JA EXCEPTION ===\n");
 
@@ -9,7 +8,7 @@ try
     Console.WriteLine("Proovime luua õpilase vale sünniaastaga (2030):");
     Õpilane test = new Õpilane();
     test.Nimi = "Test";
-    test.Sünniaasta = 2030; // See viskab vea
+    test.Sünniaasta = 2030;
     test.Kirjelda();
 }
 catch (ArgumentException ex)
@@ -124,12 +123,12 @@ foreach (ITööline isik in palgasaajad)
 minuKool.KuvaKõik();
 minuKool.OtsiNimeJärgi("Mati");
 
-// HARJUTUS 9
+// harjutus 9
 Console.WriteLine("\n=== HARJUTUS 9: FILTREERIMINE ===");
 minuKool.KuvaAinultÕpilased();
 minuKool.KuvaAinultÕpilased_LINQ();
 
-// HARJUTUS 10
+// harjutus 10
 Console.WriteLine("\n=== HARJUTUS 10: KURSUS JA ÕPETAJA ===");
 // Loome uue õpetaja
 Õpetaja matemaatikaÕpetaja = new Õpetaja();
