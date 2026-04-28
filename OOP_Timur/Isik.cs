@@ -6,18 +6,9 @@ namespace OOP_Timur
     {
         // Privaatne väli - otse ligi ei saa
         private int sünniaasta;
-        public static int InimesteKoguarv = 0;
+
         // Avalik omadus (Property) automaatse get/set logikaga
         public string Nimi { get; set; }
-        public Isik()
-        {
-            InimesteKoguarv++;
-        }
-
-        public Isik(string nimi) : this()
-        {
-            Nimi = nimi;
-        }
 
         // Kontrollitud omadus
         public int Sünniaasta
@@ -25,15 +16,22 @@ namespace OOP_Timur
             get { return sünniaasta; }
             set
             {
+                // HARJUTUS 8
                 if (value > 1900 && value <= DateTime.Now.Year)
                     sünniaasta = value;
                 else
-                    Console.WriteLine("Vigane sünniaasta!");
+                    throw new ArgumentException("Vigane aasta! Sünniaasta peab olema vahemikus 1901 kuni " + DateTime.Now.Year);
             }
         }
 
-        // Arvutatud omadus (ainult lugemiseks / getter)
         public int Vanus => sünniaasta == 0 ? 0 : DateTime.Now.Year - sünniaasta;
+
+        public static int InimesteKoguarv = 0;
+
+        public Isik()
+        {
+            InimesteKoguarv++;
+        }
 
         // Tegevus ehk meetod
         public void Tervita()
@@ -45,8 +43,7 @@ namespace OOP_Timur
             else
                 Console.WriteLine($"Tere! Mina olen {Nimi} ja ma olen {Vanus} aastat vana. Olen sündinud {Sünniaasta} aastal.");
         }
-        // Abstraktne meetod – sisu puudub, alamklassid PEAVAD selle ise looma
-        public abstract string Kirjelda();
+        public abstract void Kirjelda();
 
     }
 }

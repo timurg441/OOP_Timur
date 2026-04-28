@@ -16,13 +16,13 @@ namespace OOP_Timur
             inimesed.Add(isik);
         }
 
-        // massiivi lisamine
+        // HARJUTUS 6
         public void LisaInimene(Isik[] uuedInimesed)
         {
             inimesed.AddRange(uuedInimesed);
         }
 
-        // listi lisamine
+        // HARJUTUS 6
         public void LisaInimene(List<Isik> uuedInimesed)
         {
             inimesed.AddRange(uuedInimesed);
@@ -36,6 +36,29 @@ namespace OOP_Timur
                 // Polümorfism teeb siin imesid! 
                 // C# teab ise, kas käivitada Õpetaja või Õpilase Kirjelda() meetod.
                 isik.Kirjelda();
+            }
+        }
+
+        // HARJUTUS 9
+        public void KuvaAinultÕpilased()
+        {
+            Console.WriteLine("\n--- AINULT ÕPILASED ---");
+            foreach (var isik in inimesed)
+            {
+                if (isik is Õpilane)
+                {
+                    isik.Kirjelda();
+                }
+            }
+        }
+
+        public void KuvaAinultÕpilased_LINQ()
+        {
+            Console.WriteLine("\n--- AINULT ÕPILASED (LINQ) ---");
+            var õpilased = inimesed.OfType<Õpilane>().ToList();
+            foreach (var õpilane in õpilased)
+            {
+                õpilane.Kirjelda();
             }
         }
 
@@ -76,16 +99,14 @@ namespace OOP_Timur
         public void Otsi(int otsitavAasta)
         {
             Console.WriteLine($"\nOtsime kedagi, kes on sündinud aastal: {otsitavAasta}");
-            // Siin eeldame, et lisasime Isik klassile ka Sünniaasta tagasi
             Console.WriteLine($"\n--- OTSINGU TULEMUSED (Sünniaasta : {otsitavAasta}) ---");
             bool leitud = false;
 
             foreach (var isik in inimesed)
             {
-                //Võrdleme isiku Sünniaasta property't otsitava numbriga
                 if (isik.Sünniaasta == otsitavAasta)
                 {
-                    isik.Kirjelda(); // Polümorfism: kutsub välja õige klassi kirjelduse
+                    isik.Kirjelda();
                     Console.WriteLine("------------------");
                     leitud = true;
                 }
@@ -96,12 +117,12 @@ namespace OOP_Timur
             }
         }
 
-        // faili salvestamine
+        // HARJUTUS 7
         public void SalvestaFaili(string failinimi)
         {
-            StreamWriter writer = new StreamWriter(failinimi, false, Encoding.UTF8));
+            StreamWriter writer = new StreamWriter(failinimi);
 
-            writer.WriteLine("--- KOOLI NIMEKIRI (Salvestatud: {DateTime.Now}) ---");
+            writer.WriteLine("=== KOOLI NIMEKIRI ===");
 
             foreach (var isik in inimesed)
             {
