@@ -4,14 +4,13 @@ using System.Text;
 
 namespace OOP_Timur
 {
-    // HARJUTUS 10
     public class Kursus
     {
         // Omadused
         public string Nimi { get; set; }
         public Õpetaja VastutavÕpetaja { get; set; }
 
-        // Konstruktor (valikuline)
+        // Konstruktor
         public Kursus(string nimi, Õpetaja õpetaja)
         {
             Nimi = nimi;
