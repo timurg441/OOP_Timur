@@ -81,10 +81,6 @@ palgasaajad.Add(kadi);
 minuKool.LisaInimene(jüri);
 palgasaajad.Add(jüri);
 
-Õpilane olga = new Õpilane("Olga", "TTHK", 9);
-olga.Sünniaasta = 2009;
-minuKool.LisaInimene(olga);
-
 Õpetaja anna = new Õpetaja { Nimi = "Anna", Sünniaasta = 1985, Aine = "Python", Tunnitasu = 20, Tunnidkuus = 80 };
 minuKool.LisaInimene(anna);
 palgasaajad.Add(anna);
